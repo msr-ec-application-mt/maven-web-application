@@ -26,10 +26,12 @@ node
     sh  "scp -o  StrictHostKeyChecking=no target/maven-web-application.war  ec2-user@54.81.130.75:/opt/apache-tomcat-9.0.40/webapps/"
 }
 }
+/*
 stage('Email alerts')
 {
 mail bcc: 'devops2020sudheer!@gmail.com', body: '''regards,
 SudheerReddy.''', cc: 'devops2020sudheer!@gmail.com', from: '', replyTo: '', subject: 'build over...,', to: 'devops2020sudheer!@gmail.com'
     
 }
+*/
 }
