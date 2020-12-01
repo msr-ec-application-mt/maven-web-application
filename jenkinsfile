@@ -1,7 +1,7 @@
-node 
+node('node3')
 {
-    properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '4', daysToKeepStr: '4', numToKeepStr: '4')), [$class: 'JobLocalConfiguration', changeReasonComment: ''], pipelineTriggers([pollSCM('* * * * *')])])
-    
+    properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '4', daysToKeepStr: '4', numToKeepStr: '4')), parameters([choice(choices: ['development', 'master', 'test', 'qa'], description: '', name: 'BranchName'), string(defaultValue: 'SudheerReddy M', description: '', name: 'PersonName', trim: false)]), [$class: 'JobLocalConfiguration', changeReasonComment: ''], pipelineTriggers([pollSCM('* * * * *')])])
+ 
     def mavenHome= tool name: "Maven3.6.3"
     stage('Checkoutcode From SCM')
     {
@@ -23,7 +23,7 @@ node
     {
         sshagent(['eb96e5ff-8328-4352-bf3e-45ecff7de812']) 
         {
-    sh  "scp -o  StrictHostKeyChecking=no target/maven-web-application.war  ec2-user@54.81.130.75:/opt/apache-tomcat-9.0.40/webapps/"
+    sh  "scp -o  StrictHostKeyChecking=no target/maven-web-application.war  ec2-user@54.198.188.186:/opt/apache-tomcat-9.0.40/webapps/"
 }
 }
 /*
