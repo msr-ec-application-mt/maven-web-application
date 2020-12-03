@@ -6,6 +6,9 @@ tools
 {
 maven "Maven3.6.3"
 }
+triggers {
+  pollSCM '* * * * *'
+}
 stages
 {
 stage('CHECKOUT CODE FROM SCM')
