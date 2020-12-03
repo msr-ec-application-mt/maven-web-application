@@ -1,38 +1,51 @@
-node
+pipeline
 {
-properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '4', daysToKeepStr: '4', numToKeepStr: '4')), [$class: 'JobLocalConfiguration', changeReasonComment: ''], pipelineTriggers([pollSCM('* * * * * ')])])
-def mavenHome= tool name: "Maven3.6.3"
+agent any
 
+tools
+{
+maven "Maven3.6.3"
+}
+stages
+{
 stage('CHECKOUT CODE FROM SCM')
+{
+steps
 {
 git branch: 'development', url: 'https://github.com/msr-ec-application-mt/maven-web-application.git'
 }
+}
 stage('Build job by using Maven')
 {
-sh "${mavenHome}/bin/mvn clean package"
+steps
+{
+sh "mvn clean package"
+}
 }
 stage('Excute SonarQube Server Analysis')
 {
-sh "${mavenHome}/bin/mvn sonar:sonar"
+steps
+{
+sh "mvn sonar:sonar"
+}
 }
 stage('Deploy Artifact in to Nexus Repo')
 {
-sh "${mavenHome}/bin/mvn deploy"
+steps
+{
+sh "mvn deploy"
+}
 }
 stage('Deploy artifact to Tomcat Server')
+{
+steps
 {
 sshagent(['eb96e5ff-8328-4352-bf3e-45ecff7de812']) 
 {
   sh "scp -o  StrictHostKeyChecking=no target/maven-web-application.war ec2-user@18.234.119.105:/opt/apache-tomcat-9.0.40/webapps/"
 }
+}
+}
 
 }
-/*
-stage('Send Email Notification Alerts')
-{
-mail bcc: 'devops2020teja@gmail.com', body: '''Regards,
-M.Sudheern Reddy,
-8555074541.''', cc: 'devops2020teja@gmail.com', from: '', replyTo: '', subject: 'Build over ...,', to: 'devops2020teja@gmail.com'
-}
-*/
 }
