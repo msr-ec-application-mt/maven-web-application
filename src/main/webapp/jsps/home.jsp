@@ -9,8 +9,8 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to Bhanu420 Software Solutions Banglore....,</h1>
-<h1 align="center"> Bhanu420 Software Solutions Banglore- Very Good Training center for DevOps with AWS and AZURE in Maratha Halli and also for Job Assitance Job Support also...Teaching Real Time scnerios</h1>
+<h1 align="center">Welcome to Bhanu420&Kamal520 Software Solutions Banglore....,</h1>
+<h1 align="center"> Bhanu420&Kamal520 Software Solutions Banglore- Very Good Training center for DevOps with AWS and AZURE in Maratha Halli and also for Job Assitance Job Support also...Teaching Real Time scnerios</h1>
 <hr>
 <div style="text-align: center;">
 	<span>
