@@ -9,8 +9,8 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to SudheerReddy Software Solutions(SSS,Bang) Banglore....,</h1>
-<h1 align="center"> SudheerReddy(SSS,Bang) Software Solutions Banglore- Very Good Training center for DevOps with AWS and AZURE in Maratha Halli and also for Job Assitance Job Support also...Teaching Real Time scnerios</h1>
+<h1 align="center">Welcome to SudheerReddy Software Solutions Banglore....,</h1>
+<h1 align="center"> SudheerReddy Software Solutions Banglore- Very Good Training center for DevOps with AWS and AZURE in Maratha Halli and also for Job Assitance Job Support also...Teaching Real Time scnerios</h1>
 <hr>
 <div style="text-align: center;">
 	<span>
